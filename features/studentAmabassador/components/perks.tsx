@@ -26,7 +26,7 @@ const perks: Perk[] = [
     title: "Pre-Placement Interview Opportunity*",
     desc: "Stand out to hiring teams and unlock a fast-tracked interview opportunity.",
     bg: "bg-emerald-400",
-    i: `/images/studentAmbassador/perks/interview.png`,
+    i: `/images/studentAmbassador/perks/prePlacement.png`,
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ const perks: Perk[] = [
     title: "Personalized 1:1 Mentorship*",
     desc: "Personal guidance from industry mentors for your career growth.",
     bg: "bg-yellow-400",
-    i: `/images/studentAmbassador/perks/mentor.png`,
+    i: `/images/studentAmbassador/perks/mentorOneToOne.png`,
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ const perks: Perk[] = [
     title: "Internships with a ₹10,000 Stipend*",
     desc: "Work on real projects while earning a monthly stipend.",
     bg: "bg-violet-400",
-    i: `/images/studentAmbassador/perks/stipent.png`,
+    i: `/images/studentAmbassador/perks/stipendUpto10000.png`,
   },
   {
     id: 7,
@@ -66,7 +66,7 @@ const perks: Perk[] = [
     title: "Build Real-World Skills",
     desc: "Hands-on experience solving problems that matter in the industry.",
     bg: "bg-orange-400",
-    i: `/images/studentAmbassador/perks/project.png`,
+    i: `/images/studentAmbassador/perks/realWorldProject.png`,
   },
 ];
 
@@ -74,16 +74,25 @@ const PerkCard = ({ p }: { p: Perk }) => (
   <div
     className={`${glass} group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-3xl p-6 transition-transform duration-300 hover:scale-[1.02] md:min-h-[240px] lg:min-h-[220px] ${p.pos}`}
   >
-    <div className="relative top-[20%] z-10">
+    {/* Background Glows */}
+    <div className="pointer-events-none absolute inset-0">
+      {/* Top Left - Brand Blue */}
+      <div className="absolute -top-20 -left-20 h-48 w-48 rounded-full bg-[#0050FF]/20 blur-[90px]" />
+      {/* Bottom Right - Purple */}
+      <div className="absolute -bottom-20 -right-20 h-48 w-48 rounded-full bg-violet-500/15 blur-[90px]" />
+    </div>
+    <div className="relative z-10 top-[20%]">
       <h3 className="max-w-[75%] text-xl font-bold leading-tight text-white">
         {p.title}
       </h3>
-      <p className="mt-4 max-w-[50%] text-[14px] md:text-[12px] leading-snug text-gray-400">
+
+      <p className="mt-4 max-w-[50%] text-[14px] leading-snug text-gray-400 md:text-[12px]">
         {p.desc}
       </p>
     </div>
 
-    <div className="pointer-events-none absolute bottom-0 right-0 h-[65%] w-[60%] translate-x-2 translate-y-2">
+    {/* Image */}
+    <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-[65%] w-[60%] translate-x-2 translate-y-2">
       <Image
         src={p.i}
         alt={p.title}
@@ -97,19 +106,13 @@ const PerkCard = ({ p }: { p: Perk }) => (
 export default function Perks() {
   return (
     <section className={`${section}`}>
-      <div className="pointer-events-none absolute inset-0">
+      {/* <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-1/2 right-20 h-[400px] w-[400px] rounded-full bg-sky-400/15 blur-[180px]" />
+        <div className="absolute -top-40 right-1/3 h-[350px] w-[350px] rounded-full bg-violet-500/12 blur-[180px]" />
+        <div className="absolute bottom-0 left-1/3 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[180px]" />
+      </div> */}
 
-  {/* Sky Blue */}
-  <div className="absolute top-1/2 right-20 h-[400px] w-[400px] rounded-full bg-sky-400/15 blur-[180px]" />
-
-  {/* Violet */}
-  <div className="absolute -top-40 right-1/3 h-[350px] w-[350px] rounded-full bg-violet-500/12 blur-[180px]" />
-
-  {/* Cyan */}
-  <div className="absolute bottom-0 left-1/3 h-[400px] w-[400px] rounded-full bg-cyan-400/10 blur-[180px]" />
-      </div>
-
-      <div className="relative z-10 mx-auto flex w-full flex-col items-center">
+      <div className="relative mx-auto flex w-full flex-col items-center">
         <div className="mx-auto w-full">
           <h2 className="text-4xl font-bold mb-2 text-center">Perks</h2>
 

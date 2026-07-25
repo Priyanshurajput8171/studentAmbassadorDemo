@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { Rocket, Users } from "lucide-react";
+import {Rocket} from "lucide-react";
 import {
   section,
   glass,
@@ -74,11 +73,7 @@ export default function ProgramSneakPeek() {
                   {card.weeks}
                 </span>
                 <span className="rounded-full bg-[#83B5E5] border border-[#0ea1e4]/40 p-1.5 sm:p-1 text-[#0050FF]">
-                  {idx === 0 || idx === 2 ? (
-                    <Rocket className="h-5 w-5" />
-                  ) : (
-                    <Users className="h-5 w-5" />
-                  )}
+                   <Rocket className="h-5 w-5" />
                 </span>
               </div>
 
